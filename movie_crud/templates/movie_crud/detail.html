@@ -14,5 +14,6 @@
   <p>{{ review_detail.grade }}</p>
   <p>{{ review_detail.created_at }}</p>
   <p>{{ review_detail.updated_at }}</p>
-
+  <a href=""><input type="submit" class="btn btn-danger" value="수정"></a>
+  <a href="{% url 'movie_crud:delete' review_detail.pk %}"><input type="submit" class="btn btn-warning" value="삭제"></a>
 {% endblock %}

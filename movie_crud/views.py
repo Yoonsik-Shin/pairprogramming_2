@@ -36,3 +36,7 @@ def detail(request, pk):
         'review_detail':review_detail,
     }
     return render(request, 'movie_crud/detail.html', context)
+
+def delete(request, pk):
+    Review.objects.get(id=pk).delete()
+    return redirect('movie_crud:index')
