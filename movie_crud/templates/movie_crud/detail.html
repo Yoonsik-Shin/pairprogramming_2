@@ -6,16 +6,27 @@
 {% endblock navbaricon %}
 
 {% block content %}
-
-  <h1>디테일페이지</h1>
-  <p>{{ review_detail.title }}</p>
-  <p>{{ review_detail.content }}</p>
-  <p>{{ review_detail.movie_name }}</p>
-  <p>{{ review_detail.grade }}</p>
-  <p>{{ review_detail.created_at }}</p>
-  <p>{{ review_detail.updated_at }}</p>
-  <a href="
-  {% url 'movie_crud:update' review_detail.pk %}
-  "><input type="submit" class="btn btn-danger" value="수정"></a>
-  <a href="{% url 'movie_crud:delete' review_detail.pk %}"><input type="submit" class="btn btn-warning" value="삭제"></a>
+  <div class="mb-3 px-3">
+    <h1>리뷰</h1>
+    <h3>영화 제목 :
+      {{ review_detail.movie_name }}
+    </h3>
+    <h3>영화 평점 :
+      {{ review_detail.grade }}
+    </h3>
+    <p>리뷰 제목 :
+      {{ review_detail.title }}
+    </p>
+    <p>리뷰 내용 :
+      {{ review_detail.content }}
+    </p>
+    <p>리뷰 생성시간 :
+      {{ review_detail.created_at }}
+    </p>
+    <p>리뷰 수정시간 :
+      {{ review_detail.updated_at }}
+    </p>
+    <a href="{% url 'movie_crud:update' review_detail.pk %}"><input type="submit" class="btn btn-warning " value="수정"></a>
+    <a href="{% url 'movie_crud:delete' review_detail.pk %}"><input type="submit" class="btn btn-danger" value="삭제"></a>
+  </div>
 {% endblock %}
