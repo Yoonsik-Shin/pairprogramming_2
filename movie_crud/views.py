@@ -18,7 +18,7 @@ def create(request):
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('movie_crud:index')
+            return redirect('movie_crud:main')
     else:
         form = ReviewForm()
     context = {
