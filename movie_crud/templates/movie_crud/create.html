@@ -6,10 +6,11 @@
 {% endblock navbaricon %}
 
 {% block content %}
-  <h1>hi</h1>
-  {% for review in reviews %}
-    <p>{{ review.title }}</p>
-    <p>{{ review.movie_name }}</p>
-  {% endfor %}
+  {% load django_bootstrap5 %}
 
+  <form action="/url/to/submit/" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit" value="추가">
+  </form>
 {% endblock %}
