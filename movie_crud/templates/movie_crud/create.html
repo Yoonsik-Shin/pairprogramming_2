@@ -7,11 +7,9 @@
 
 {% block content %}
   {% load django_bootstrap5 %}
-  <div class="table-responsive input-group mb-3 px-3">
-    <form action="" method="post" class="form">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      <input class="btn btn-primary" type="submit" value="추가">
-    </form>
-  </div>
+  <form action="" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit" value="추가">
+  </form>
 {% endblock %}

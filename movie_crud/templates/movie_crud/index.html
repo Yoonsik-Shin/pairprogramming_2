@@ -29,7 +29,7 @@
             <td>{{ review.content }}</td>
             <td>{{ review.movie_name }}</td>
             <td>{{ review.grade }}</td>
-            <td>{{ review.updated_at }}</td>
+            <td>{{ review.updated_at|date:"y/m/d  H:i" }}</td>
             <td>
               <a class="btn btn-primary py-sm-1" href="{% url 'movie_crud:update' review.pk %}" role="button">변경</a>
             </td>

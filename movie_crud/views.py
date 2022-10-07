@@ -28,9 +28,9 @@ def create(request):
     else:
         form = ReviewForm()
     context = {
-        "form": form,
+        "review_form": form,
     }
-    return render(request, "movie_crud/create.html", context)
+    return render(request, "movie_crud/update.html", context)
 
 
 def detail(request, pk):
