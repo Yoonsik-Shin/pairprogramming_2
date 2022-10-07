@@ -8,8 +8,12 @@
 {% block content %}
   <h1>hi</h1>
   {% for review in reviews %}
-    <p>{{ review.title }}</p>
-    <p>{{ review.movie_name }}</p>
+    <a href="{% url 'movie_crud:detail' review.pk %}">
+      <div>
+        <p>{{ review.title }}</p>
+        <p>{{ review.movie_name }}</p>
+      </div>
+    </a>
   {% endfor %}
 
 {% endblock %}

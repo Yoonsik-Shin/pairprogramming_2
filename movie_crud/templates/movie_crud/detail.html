@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block navbaricon %}
+  {% load static %}
+  <img src="{% static "movie_crud/123.png" %}" alt="" width="30" height="30" class="d-inline-block align-text-top"/>
+{% endblock navbaricon %}
+
+{% block content %}
+
+  <h1>디테일페이지</h1>
+  <p>{{ review_detail.title }}</p>
+  <p>{{ review_detail.content }}</p>
+  <p>{{ review_detail.movie_name }}</p>
+  <p>{{ review_detail.grade }}</p>
+  <p>{{ review_detail.created_at }}</p>
+  <p>{{ review_detail.updated_at }}</p>
+
+{% endblock %}

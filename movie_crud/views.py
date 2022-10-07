@@ -4,7 +4,11 @@ from .forms import ReviewForm
 
 # Create your views here.
 def main(request):
-    return render(request, "movie_crud/main.html")
+    reviews = Review.objects.all().order_by("-pk")
+    context = {
+        "reviews": reviews,
+    }
+    return render(request, "movie_crud/main.html", context)
 
 def index(request):
     reviews = Review.objects.all().order_by("-pk")
@@ -25,3 +29,10 @@ def create(request):
         'form': form,
     }
     return render(request, 'movie_crud/create.html', context)
+
+def detail(request, pk):
+    review_detail = Review.objects.get(id=pk)
+    context = {
+        'review_detail':review_detail,
+    }
+    return render(request, 'movie_crud/detail.html', context)
