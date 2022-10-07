@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block navbaricon %}
+  {% load static %}
+  <img src="{% static "movie_crud/123.png" %}" alt="" width="30" height="30" class="d-inline-block align-text-top"/>
+{% endblock navbaricon %}
+
+{% block content %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<form action="" method='POST'>
+  {% csrf_token %}
+  {% bootstrap_form review_form %}
+  {% bootstrap_button content='수정하기' button_type='submit' button_class="btn-primary" %}
+
+</form>
+
+{% endblock %}
