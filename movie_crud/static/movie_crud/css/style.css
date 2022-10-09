@@ -1,15 +1,14 @@
-body {
-    background-color: grey;
-}
-
+/* 케러셀 크기 조절 */
 .carousel {
     /* any dimensions are fine, it can be responsive with max‑width */
+
     width: 100%;
-    height: 400px;
+    height: 500px;
 }
 
 .carousel-inner {
     /* make sure your .items will get correct height */
+
     height: 100%;
 }
 

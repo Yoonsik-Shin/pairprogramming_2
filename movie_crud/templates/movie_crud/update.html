@@ -6,17 +6,21 @@
 {% endblock navbaricon %}
 
 {% block content %}
-
+  <!-- 페이지 설명 -->
   {% if request.resolver_match.url_name == 'create' %}
     <h1>리뷰작성하기</h1>
   {% else %}
     <h1>수정하기</h1>
   {% endif %}
 
+  <!-- 제출 폼 -->
   {% load django_bootstrap5 %}
   <form action="" method='POST'>
     {% csrf_token %}
     {% bootstrap_form review_form %}
+    {{ review_form }}
+
+    <!-- 작성/ 수정 버튼 -->
     {% if request.resolver_match.url_name == 'create' %}
       {% bootstrap_button content='리뷰작성' button_type='submit' button_class="btn-primary" %}
     {% else %}

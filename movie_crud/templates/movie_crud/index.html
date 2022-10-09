@@ -7,7 +7,8 @@
 
 {% block content %}
   <h1>게시판</h1>
-  <div class="table-responsive input-group mb-3 px-3 justify-content-center">
+    <div class="table-responsive input-group justify-content-center">
+    
     <table class="table">
       <thead>
         <tr>
@@ -21,8 +22,6 @@
       </thead>
       <tbody>
         {% for review in reviews %}
-        
-          <div>
           <tr>
             <th scope="row">{{ review.pk }}</th>
             <td><a href="{% url 'movie_crud:detail' review.pk %}">{{ review.title }}</a></td>
@@ -37,31 +36,37 @@
               <a class="btn btn-danger py-sm-1" href="{% url 'movie_crud:delete' review.pk %}" role="button">삭제</a>
             </td>
           </tr>
-          </div>
-        
         {% endfor %}
       </tbody>
     </table>
-    <div class="d-flex">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
   </div>
+  
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 d-flex justify-content-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+      <a class="btn btn-secondary" href="{% url 'movie_crud:create' %}" role="button" style="height: 2.5rem">리뷰작성</a>
+    </div>
   </div>
+  
       {% comment %} <a href="{% url 'movie_crud:detail' review.pk %}">
         <div>
           <p>{{ review.title }}</p>
