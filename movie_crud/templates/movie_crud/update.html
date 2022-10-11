@@ -17,8 +17,17 @@
   {% load django_bootstrap5 %}
   <form action="" method='POST'>
     {% csrf_token %}
+    <!-- 부트스트랩 리뷰폼 -->
     {% bootstrap_form review_form %}
-    {{ review_form }}
+
+    <!-- 수제 리뷰폼 -->
+    {% for field in review_form %}
+      <div>
+        {{ field.label_tag }}
+      </div>
+      {{ field }}
+      {{ field.errors }}
+    {% endfor %}
 
     <!-- 작성/ 수정 버튼 -->
     {% if request.resolver_match.url_name == 'create' %}
