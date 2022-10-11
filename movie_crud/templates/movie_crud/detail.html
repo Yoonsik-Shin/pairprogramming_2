@@ -29,4 +29,5 @@
     <a href="{% url 'movie_crud:update' review_detail.pk %}"><input type="submit" class="btn btn-warning " value="수정"></a>
     <a href="{% url 'movie_crud:delete' review_detail.pk %}"><input type="submit" class="btn btn-danger" value="삭제"></a>
   </div>
+  <script src="{% static 'movie_crud/js/movie_crud.js' %}"/>
 {% endblock %}
