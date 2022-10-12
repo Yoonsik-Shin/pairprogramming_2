@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block navbaricon %}
+  {% load static %}
+  <img src="{% static "movie_crud/img/123.png" %}" alt="" width="30" height="30" class="d-inline-block align-text-top"/>
+{% endblock navbaricon %}
+
+{% block content %}
+  {% load django_bootstrap5 %}
+  <h1>로그인</h1>
+  <form action="" method='POST'>
+    {% csrf_token %}
+    <!-- 부트스트랩 리뷰폼 -->
+    {% bootstrap_form login_form %}
+    <input type="submit" value="로그인">
+    <button>
+      <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
+    </button>
+  </form>
+  <script src="{% static 'movie_crud/js/movie_crud.js' %}"/>
+{% endblock content %}

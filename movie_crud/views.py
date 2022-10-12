@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Review
 from .forms import ReviewForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def main(request):
@@ -18,13 +19,13 @@ def index(request):
     }
     return render(request, "movie_crud/index.html", context)
 
-
+@login_required
 def create(request):
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("movie_crud:main")
+            return redirect("movie_crud:index")
     else:
         form = ReviewForm()
     context = {
@@ -40,7 +41,7 @@ def detail(request, pk):
     }
     return render(request, "movie_crud/detail.html", context)
 
-
+@login_required
 def update(request, pk):
     review = Review.objects.get(pk=pk)
     review_form = ReviewForm(instance=review)
@@ -55,7 +56,7 @@ def update(request, pk):
     context = {"review_form": review_form}
     return render(request, "movie_crud/update.html", context)
 
-
+@login_required
 def delete(request, pk):
     Review.objects.get(id=pk).delete()
     return redirect("movie_crud:index")

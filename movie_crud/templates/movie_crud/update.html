@@ -21,13 +21,13 @@
     {% bootstrap_form review_form %}
 
     <!-- 수제 리뷰폼 -->
-    {% for field in review_form %}
+    {% comment %} {% for field in review_form %}
       <div>
         {{ field.label_tag }}
       </div>
       {{ field }}
       {{ field.errors }}
-    {% endfor %}
+    {% endfor %} {% endcomment %}
 
     <!-- 작성/ 수정 버튼 -->
     {% if request.resolver_match.url_name == 'create' %}
