@@ -37,7 +37,7 @@
                 <a class="nav-link" href="{% url 'accounts:logout' %}">로그아웃</a>
               </li>
               <li class="nav-item">
-                {{ user }}님 안녕하세요!
+                <p class="nav-link mb-0 fw-bold">{{ user }}님 안녕하세요!</p>
               </li>
             {% else %}
               <li class="nav-item">

@@ -45,6 +45,16 @@
       <a href="{% url 'movie_crud:index' %}"><input class="btn btn-primary" type="submit" value="리뷰 목록"></a>
       <a href="{% url 'movie_crud:create' %}"><input class="btn btn-primary" type="submit" value="리뷰 작성"></a>
     </div>
+    {% for review in reviews %}
+      <div class="card" style="width: 18rem;">
+        <img src="{{ review.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ review.title }}</h5>
+          <p class="card-text">{{ review.content }}</p>
+          <a href="{% url 'movie_crud:detail' review.pk %}" class="btn btn-primary">자세히보기</a>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 
   <script src="{% static 'movie_crud/js/movie_crud.js' %}"/>

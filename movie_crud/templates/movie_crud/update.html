@@ -15,11 +15,11 @@
 
   <!-- 제출 폼 -->
   {% load django_bootstrap5 %}
-  <form action="" method='POST'>
+  <form action="" method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     <!-- 부트스트랩 리뷰폼 -->
     {% bootstrap_form review_form %}
-
+    {% comment %} <input type="file" accept="image/*" name="" id=""> {% endcomment %}
     <!-- 수제 리뷰폼 -->
     {% comment %} {% for field in review_form %}
       <div>
